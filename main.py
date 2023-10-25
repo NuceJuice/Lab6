@@ -1,5 +1,8 @@
 import sys
 
+
+# Parter: Julian Garcia
+
 def encode(password):
     encodedString = ""
     for i in password:
@@ -7,9 +10,16 @@ def encode(password):
     print("Your password has been encoded and stored!")
     print()
     return encodedString
+
+
+def decode(password):
+    decodedString = ''
+    for i in password:
+        decodedString += str(int(i) - 3)
+    return decodedString
+
+
 def main():
-
-
     encoded = None
 
     while True:
@@ -25,8 +35,15 @@ def main():
             password = input("Please enter your password to encode: ")
             encoded = encode(password)
 
+        elif menu_selection == 2:
+            decoded = decode(encoded)
+            print(f'The encoded password is {encoded}, and the original password is {decoded}.')
+            print('')
+
+
         elif menu_selection == 3:
             sys.exit()
+
 
 if __name__ == '__main__':
     main()
